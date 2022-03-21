@@ -19,7 +19,7 @@ ARG MAVEN_VERSION="3.8.4"
 
 RUN bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && \
     yes | sdk install java $JAVA_VERSION && \
-	  yes | sdk install maven $MAVEN_VERSION && \
+    yes | sdk install maven $MAVEN_VERSION && \
     sdk flush archives && \
     sdk flush temp"
 
