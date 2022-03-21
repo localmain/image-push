@@ -12,13 +12,22 @@ pipeline {
         }
        
 
-  stage('Docker Build and Tag') {
+      stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t beast1998:latest .' 
-                sh 'docker tag beast1998 oneandonlybeast1998/beast1998:$BUILD_NUMBER'
+                sh 'docker build -t developer:latest .' 
+                sh 'docker tag developer oneandonlybeast1998/developer:$BUILD_NUMBER'
+ 
                
           }
-        } 
-    }
-}
+      } 
+      stage('Docker push'){
+           steps {
+               withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
+                sh  'docker push oneandonlybeast1998/developer:$BUILD_NUMBER' 
+		          
+           }
+
+           }
+      }
+   }
