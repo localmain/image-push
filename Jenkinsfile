@@ -15,8 +15,8 @@ pipeline {
   stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t devopsclass:latest .' 
-                sh 'docker tag devopsclass srikanta1219/devopsclass:$BUILD_NUMBER'
+                sh 'docker build -t beast1998:latest .' 
+                sh 'docker tag beast1998 oneandonlybeast1998/beast1998:$BUILD_NUMBER'
                
           }
         } 
