@@ -15,8 +15,8 @@ pipeline {
       stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t developer:latest .' 
-                sh 'docker tag developer munna998/developer:$BUILD_NUMBER'
+                sh 'docker build -t web:latest .' 
+                sh 'docker tag web munna998/web:$BUILD_NUMBER'
  
                
           }
@@ -24,7 +24,7 @@ pipeline {
       stage('Docker push'){
            steps {
                withCredentials([string(credentialsId: 'Docker', variable: 'docker')]) {
-                sh  'docker push munna998/developer:$BUILD_NUMBER' 
+                sh  'docker push munna998/web:$BUILD_NUMBER' 
 		          
            }
 
