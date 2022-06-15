@@ -23,7 +23,7 @@ pipeline {
       } 
       stage('Docker push'){
            steps {
-               withCredentials([string(credentialsId: 'docker', variable: 'docker')]) {
+               withCredentials([string(credentialsId: 'Docker', variable: 'docker')]) {
                 sh  'docker push munna1998/developer:$BUILD_NUMBER' 
 		          
            }
