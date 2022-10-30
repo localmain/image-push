@@ -22,7 +22,7 @@ pipeline {
       } 
       stage('Docker push'){
            steps {
-            withCredentials([string(credentialsId: 'jenkins-docker', variable: 'Docker')]) {
+           withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
 		    sh  'docker push munna998/web:latest'
 		    sh  'docker push munna998/web:$BUILD_NUMBER' 
 		          
