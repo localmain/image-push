@@ -1,3 +1,3 @@
-FROM ubuntu
-RUN apt-get update -y
-RUN apt-get install python-3 -y
+FROM nginx
+COPY index.html /usr/share/nginx/html/
+EXPOSE 80
