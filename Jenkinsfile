@@ -1,7 +1,6 @@
 pipeline {
-	agent {
-	    label "slave"
-}		
+    agent any 
+	
  stages {
       stage('checkout') {
 	      steps {  
@@ -23,7 +22,8 @@ pipeline {
       stage('Docker push'){
            steps {
             withCredentials([string(credentialsId: 'jenkins-docker', variable: 'Docker')]) {
-                sh  'docker push munna998/web:$BUILD_NUMBER' 
+		    sh  'docker push munna998/web:latest'
+		    sh  'docker push munna998/web:$BUILD_NUMBER' 
 		          
            }
 
