@@ -14,6 +14,7 @@ pipeline {
            steps {
               
                 sh 'docker build -t web:latest .' 
+		sh 'docker tag web munna998/web:latest'  
                 sh 'docker tag web munna998/web:$BUILD_NUMBER'
  
                
