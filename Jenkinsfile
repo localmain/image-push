@@ -13,7 +13,7 @@ pipeline {
       stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t bowl:latest'  
+                sh 'docker build -t bowl .'  
                 sh 'docker tag web munna998/bowl:$BUILD_NUMBER'
  
                
