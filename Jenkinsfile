@@ -13,8 +13,8 @@ pipeline {
       stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t bowl .'  
-                sh 'docker tag web munna998/bowl:$BUILD_NUMBER'
+                sh 'docker build -t local .'  
+                sh 'docker tag web munna998/local:$BUILD_NUMBER'
  
                
           }
@@ -22,7 +22,7 @@ pipeline {
       stage('Docker push'){
            steps {
 		   withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
-		    sh  'docker push munna998/bowl:$BUILD_NUMBER' 
+		    sh  'docker push munna998/local:$BUILD_NUMBER' 
 		          
            }
 
