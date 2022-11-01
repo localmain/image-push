@@ -14,7 +14,7 @@ pipeline {
            steps {
               
                 sh 'docker build -t local .'  
-                sh 'docker tag web munna998/local:$BUILD_NUMBER'
+                sh 'docker tag local munna998/local:$BUILD_NUMBER'
  
                
           }
